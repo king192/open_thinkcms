@@ -1,0 +1,39 @@
+      body {font-family:arial, 'Hiragino Sans GB', 'Microsoft Yahei', 'Î¢ÈíÑÅºÚ', 'ËÎÌå', 5b8b4f53, Tahoma, Arial, Helvetica, STHeiti;}
+		.nav_content { overflow:hidden;min-height:500px;}
+		.nav-block { margin-top:20px;}
+		.nav_btn {margin-top:10px;}
+		.nav_top {font-weight:bold;background:pink;padding:7px;border-radius:10px;color:white;cursor:pointer;}
+		.nav_top:hover {background:rgb(252, 127, 149)}
+		.P_connectedSortableCss {width:33%;float:left;min-height:50px;}
+		.placeholder { width:95%;border-radius:4px;height:50px;border:1px dashed;margin-left:4%;margin-bottom:25px;}
+		.classSort {margin-left:4%; background:#F6F6F6; border:1px solid #E6ECF2; border-radius:4px; margin-bottom:25px; padding:4px 0 10px 0; width:95%;overflow:hidden; }
+      .connectedSortableCss {padding-bottom:3px;}
+      .connectedSortableCss li { padding: 2px; font-size: 1.2em; width: auto; cursor:move; }
+	  .empty {height:0;display:none;}
+      /*   */
+	  .ui-state-list { border-top:1px solid #E6ECF2;}
+	  .edit delRecIcon{margin-right:14.5px;}
+	  .edit {padding:4px;}
+	  .edit .ui-icon { float:right;margin:6px 4px 0 0;cursor:pointer;}
+      .add-form { cursor:pointer;}
+      /*form-group*/
+      .form-group { clear:both; margin-bottom:10px; border:1px solid #E6ECF2; border-radius:4px;margin:4px;}
+      .label-control {}
+	  .addCancal{width:92px;display:inline-block;padding:3px;margin:8px;border-radius:4px;line-height:1.45;font-size:120%;cursor:pointer;color:#FFF;text-decoration:none;outline:none;border:0;background:#389CFF;text-align:center;position:relative;*margin-top:1px;_margin-top:0;}
+	  .form-group p {margin:7px 7px 0 7px;height:30px;background-color:#fff;border:1px solid #b9b9b9;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px}
+	  .input-control {width:100%;border:0 none;margin-top:2px;font-size:120%;}
+	  .form-group input:focus {outline:0;}
+	  .shareLabel{position:relative;margin:5px 3px 3px 0;height:25px;background:#e2eaf4;border:1px solid #99b5d9;-webkit-border-radius:3px;-moz-border-radius:3px;-border-radius:3px}
+	  .shareLabel .bg-arrow{position:absolute;top:-5px;left:20px;width:9px;height:5px;background:url(source/plugin/nav/css/bg/icon_bg.png) -4px -489px no-repeat}
+	  .shareLabel .area-share{float:right;margin:4px 8px 0 0;overflow:hidden;zoom:1;_display:inline}.shareLabel .area-share span{float:left}.shareLabel .bg-arrow{position:absolute;top:-5px;left:20px;width:9px;height:5px;background:url(source/plugin/nav/css/bg/icon_bg.png) -4px -489px no-repeat}
+	  .btn-sina,.btn-t-qq,.btn-qzone{float:left;margin-left:10px;width:16px;height:16px;background:url(source/plugin/nav/css/bg/btn_share.png) no-repeat}.btn-sina{background-position:-4px -24px}
+		.btn-t-qq{background-position:-4px -50px}.btn-qzone{background-position:-4px -78px}
+	  
+	  .handle { width:100%; text-align:center;}
+	  #loader{height:24px; position:fixed;top:50%;left:20px;}
+	  #loader span {border: 5px solid rgb(193, 192, 190);display: block;padding: 30px;font-size: 18px;color: black;background: rgb(246, 246, 246);border-radius: 4px;}
+      .warning {font-size:18px;text-align:center;}
+	  .hidden {display:none;}
+	  /* bookMarkBox */
+	  .bookmark {overflow:hidden;}
+	  .bookmark a {white-space:nowrap;}

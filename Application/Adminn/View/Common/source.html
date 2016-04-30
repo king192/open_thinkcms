@@ -1,0 +1,11 @@
+<script type="text/javascript" src="__PUBLIC__/Admin/Js/common.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		var href = window.location.pathname+window.location.search;
+		var t = $('a[href="'+href+'"]');
+		// console.log('t',t);
+			t.parents('.submenu').css('display','inherit');
+			t.parents('li').addClass('open');
+	})
+</script>

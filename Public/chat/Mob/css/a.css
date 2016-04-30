@@ -1,0 +1,28 @@
+div.msg{
+	position: relative;
+}
+#userbox{
+    position: absolute;
+    top: 0;
+    display: none;
+    height: 100%;
+    width: 30%;
+    right: 0;
+    background: #FFF;
+    /*padding: 0 12px;*/
+    overflow-y: auto;
+
+}
+#userbox img{
+	border-radius: 50%;
+    vertical-align: middle;
+}
+#userlist span{
+    display: block;
+    width: 100%;
+    border-top: 1px solid #FFF;
+    padding: 1px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

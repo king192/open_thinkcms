@@ -1,0 +1,63 @@
+<php>function getsubmenu($submenus){</php>
+<php>foreach($submenus as $menu){ </php>
+					<li>
+						<php>if(empty($menu['child'])){</php>
+							<a href="{:U($menu['module'].'/'.$menu['controller'].'/'.$menu['action'])}">
+								<i class="fa fa-{$menu['icon']|default='desktop'}"></i>
+								<span class="menu-text">{$menu['name']}</span>
+							</a>
+						<php>}else{</php>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-{$menu['icon']|default='desktop'} normal"></i>
+								<span class="menu-text normal">{$menu['name']}</span>
+								<b class="arrow fa fa-angle-right normal"></b>
+								<i class="fa fa-reply back"></i>
+								<span class="menu-text back">返回</span>
+								
+							</a>
+							
+							<ul  class="submenu">
+									<php>getsubmenu1($menu['child'])</php>
+							</ul>	
+						<php>}</php>
+						
+					</li>
+					
+				<php>}</php>
+<php>}</php>
+
+<php>function getsubmenu1($submenus){</php>
+<php>foreach($submenus as $menu){</php>
+					<li>
+						<php>if(empty($menu['child'])){</php>
+							<a href="{:U($menu['module'].'/'.$menu['controller'].'/'.$menu['action'])}">
+								<i class="fa fa-caret-right"></i>
+								<span class="menu-text">{$menu['name']}</span>
+							</a>
+						<php>}else{</php>
+							<a href="#" class="dropdown-toggle">
+								<i class="fa fa-caret-right"></i>
+								<span class="menu-text">{$menu['name']}</span>
+								<b class="arrow fa fa-angle-right"></b>
+							</a>
+							<ul  class="submenu">
+									<php>getsubmenu2((array)$menu['child'])</php>
+							</ul>	
+						<php>}</php>
+						
+					</li>
+					
+				<php>}</php>
+<php>}</php>
+
+<php>function getsubmenu2($submenus){</php>
+<php>foreach($submenus as $menu){</php>
+					<li>
+							<a href="{:U($menu['module'].'/'.$menu['controller'].'/'.$menu['action'])}">
+								&nbsp;<i class="fa fa-angle-double-right"></i>
+								<span class="menu-text">{$menu['name']}</span>
+							</a>
+					</li>
+					
+				<php>}</php>
+<php>}</php>

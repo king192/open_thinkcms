@@ -1,0 +1,56 @@
+
+.iconBgImages {
+	background:url(bg/icon_bg.png) no-repeat;
+}
+.allBmBbtn {
+	float:right;
+	margin-right:10px;
+	width:20px;
+	height:20px;
+	cursor:pointer;
+	background-position:0 -122px;
+	_display:inline;
+	outline:0;
+}
+.allBmBbtn:hover {
+	background-position:0 -144px;
+}
+/*
+------------------------------*/
+.delRecIcon,.modRecIcon,.shareRecIcon,.appSetIcon,.upIcon,.downIcon{
+	float:right;
+	margin:4px 4px 0 0;
+	display:block;
+	width:14px;
+	height:14px;
+	background:url(bg/icon_bg.png) no-repeat;
+	cursor:pointer
+}
+/* ÍøÕ¾Í¼±ê */
+.favIcon{float:left;display:block;margin-top:4px;margin-top:2px\9;width:16px;height:16px;_font-size:0}
+.defaultIcon{background:url(bg/default_ico.gif) no-repeat center center}
+/*·ÖÏí*/
+.shareRecIcon {background-position:0 -50px;}
+.shareRecIcon:hover{background-position:0 -470px}
+/*±à¼­*/
+.modRecIcon {background-position:0 -26px;}
+.modRecIcon:hover{background-position:0 -451px}
+/*É¾³ý*/
+.delRecIcon {background-position:0 -2px;}
+.delRecIcon:hover{background-position:0 -432px}
+/*·ÖÀàÊÕÆð*/
+.upIcon {background-position:-3px -498px;}
+.upIcon:hover{background-position:-3px -512px}
+/*·ÖÀàÕ¹¿ª*/
+.downIcon{background-position:-1px -530px;}
+.downIcon:hover{background-position:-1px -549px}
+/*   ·ÖÀà      */
+.rightBtn{float:right;margin:5px 0 0 0;width:20px;height:22px;background-position:-1px -171px;cursor:pointer}
+.cannelBtn{float:right;margin:6px 8px 0 0;width:20px;height:22px;background-position:-1px -69px;cursor:pointer}
+.cannelBtn:hover{background-position:-1px -94px}
+.innerLabelHeadeModify input{margin:5px 0 0 0;width:172px;font-size:14px;font-weight:bold;border:0;outline:0}
+.innerLabelHeadeModify .cannelBtn{float:right;margin:5px 0 5px 5px;_display:inline}
+
+.ui-state-list .delRecIcon,.ui-state-list .modRecIcon,.ui-state-list .shareRecIcon{display:none}
+
+li.mHover{background:#f4f7fb}.classSort li.mHover .delRecIcon,.classSort li.mHover .modRecIcon,.classSort li.mHover .shareRecIcon{display:block}

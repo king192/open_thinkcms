@@ -1,0 +1,94 @@
+<include file="Common/header,Common/source,Common/topbar" />
+<body>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<!-- <div class="span4">
+				</div> -->
+				<div class="col-lg-4 col-lg-offset-4">
+					<form class="J_ajaxForm" action="{:U('login')}">
+						<fieldset>
+							 <legend>登录</legend> <div class="form-group">
+					    		<label for="username" class="control-label">用户名</label>
+								<div class="">
+						      		<input type="text" class="form-control" placeholder="用户名" id="username" name="username">
+						    	</div>
+						    </div>
+							<div class="form-group">
+					    		<label for="passwd" class="control-label">密码</label>
+					    		<div class="">
+						      		<input id="passwd" name="passwd" type="password" class="form-control" placeholder="密码">
+						    	</div>
+						    </div>
+							<div class="form-group">
+					    		<label for="verify" class="control-label">验证码</label>
+					    		<div class="">
+						      		<input id="verify" name="verify" type="text" class="form-control" placeholder="验证码">
+						    	</div>
+						    </div>
+							<div class="form-group">
+					    		<label for="verify" class="control-label"></label>
+								<img id="verifyimg" src="{:U('UserRegister/verify')}" alt="">
+							</div>
+												 <label class="checkbox"><input type="checkbox" name="remember" value="1" /> 记住我</label>
+												 <button type="submit" class="btn J_ajax_submit_btn">登录</button>
+								<a href="{:U('UserRegister/index')}">没有账号，注册一个</a>
+								<a href="{:U('Forgetpwd/index')}">找回密码</a>
+						</fieldset>
+					</form>
+				</div>
+				<!-- <div class="span4">
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- <form action="" id="form">
+	用户名
+		<input id="username" name="username" type="text">
+	密码
+		<input id="passwd" name="passwd" type="password">
+	验证码
+		<input id="verify" name="verify" type="text">
+		<img id="verifyimg" src="{:U('UserRegister/verify')}" alt="">
+		<a href="javascript:;" id="submit">登录</a>
+		<a href="{:U('UserRegister/index')}">没有账号，注册一个</a>
+		<a href="{:U('Forgetpwd/index')}">找回密码</a>
+	</form> -->
+	<div class="col-xl-6 col-xl-offset-3">
+		<form class="form-horizontal" data-example-id="input-group-sizing" id="form">
+		
+	  </form>
+	</div>
+	<!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script> -->
+	<script type="text/javascript">
+	$(function(){
+
+		$("#verifyimg,input[name='verify']").click(function(){   
+	        reloadverify();
+	        $("input[name='verify']").val('');
+	    });
+	    function reloadverify(){
+	    	var verifyimg = $("#verifyimg").attr("src");
+	    	if(typeof(verifyimg) == "undefined"){
+	            console.log('1')
+	        }else{
+	        	console.log('2')
+	            if( verifyimg.indexOf('?')>0){
+	            	console.log('3')
+	                $("#verifyimg").attr("src", verifyimg+'&random='+Math.random());
+	            }else{
+	            	console.log('4')
+	                $("#verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+	            } 
+	        }
+	    }
+	})
+	function after_success_post(data){
+		setTimeout(function(){
+			window.location.href="{:U('UCenter/Uc/profile')}";
+		},2000);
+	}
+	</script>
+<include file="Common/footer" />

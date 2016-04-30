@@ -1,0 +1,24 @@
+
+		html body{margin: 0; height: 100%; position: absolute; width: 100%;}
+		.actives{color:#DE6767; border-bottom: 2px solid;}
+		img{max-width: 100%;}
+		ul{padding: 0;margin: 0;}
+		ul li{list-style-type: none;}
+		div.bar ul{overflow: hidden; text-align: center; background-color: #F5F5F5; border-bottom: 1px solid #EAEAEA;margin: }
+		div.bar li{float: left;width: 33%;border-right: 1px solid #EAEAEA; padding: 12px 0; }
+		div.msg{background: url(./images/chat_bg.jpg); background-repeat: no-repeat; height: 235px; background-size: 100%;overflow-y: auto;}
+		div.msg ul{padding-bottom: 50px;}
+		div.msg li{}
+		div.msg span{float: left;display: block;}
+		span.avatar{width: 10%;}
+		span.avatar img{border-radius: 50%;width: 35px;height: 35px;}
+		span.ne{width: 90%;line-height: 35px;color: #FF5A5A;}
+		div.msg .msg_info{padding: 10px;background: #fff; border: 1px solid #eee; display: inline-block; margin-left: 10px; border-radius: 6px;position: relative;}
+		.trangle{position: absolute; display: block; border-width: 10px; border-style: solid; border-left-color: transparent; border-right-color: transparent; border-top-color: transparent; top: -20px; left: 4px;border-bottom-color: #eee;}
+    	.trangle:after{content: ""; position: absolute; display: block; border-width: 10px; border-style: solid; border-left-color: transparent; border-right-color: transparent; border-top-color: transparent; border-bottom-color: #fff; top: -9px; left: -10px;}
+    	.input{
+    position: fixed; bottom: 0; width: 100%; padding: 10px 3%; background: #FFF;
+}
+    	.input span{width: 75%; border: 1px solid ; padding: 3px 0; display: block; float: left; border-radius: 4px;}
+    	.input span input{width: 96%;}
+    	a.submit{text-decoration: none; color: #000; border: 1px solid #eee; width: 18%; display: block; float: right; border-radius: 5px; text-align: center; background-color: #FFF;}

@@ -1,0 +1,105 @@
+<include file="Common/header,Common/source,Common/topbar" />
+<body>
+	<!-- <form action="" id="form">
+	用户名
+		<input id="username" name="username" type="text">
+	密码
+		<input id="passwd" name="passwd" type="password">
+	验证码
+		<input id="verify" name="verify" type="text">
+		<img id="verifyimg" src="{:U('UserRegister/verify')}" alt="">
+		<a href="javascript:;" id="submit">登录</a>
+		<a href="{:U('UserRegister/index')}">没有账号，注册一个</a>
+		<a href="{:U('Forgetpwd/index')}">找回密码</a>
+	</form> -->
+	<div class="col-xl-6 col-xl-offset-3">
+		<form class="form-horizontal" data-example-id="input-group-sizing" id="form">
+		<div class="form-group">
+    		<label for="username" class="col-sm-5 control-label">用户名</label>
+			<div class="col-sm-3">
+	      		<input type="text" class="form-control" placeholder="用户名" id="username" name="username">
+	    	</div>
+	    </div>
+		<div class="form-group">
+    		<label for="passwd" class="col-sm-5 control-label">密码</label>
+    		<div class="col-sm-3">
+	      		<input id="passwd" name="passwd" type="password" class="form-control" placeholder="密码">
+	    	</div>
+	    </div>
+		<div class="form-group">
+    		<label for="verify" class="col-sm-5 control-label">验证码</label>
+    		<div class="col-sm-3">
+	      		<input id="verify" name="verify" type="text" class="form-control" placeholder="验证码">
+	    	</div>
+	    </div>
+		<div class="form-group">
+    		<label for="verify" class="col-sm-5 control-label"></label>
+			<img id="verifyimg" src="{:U('User/UserRegister/verify')}" alt="">
+			<a href="javascript:;" id="submit" class="btn btn-success">登录</a>
+			<a href="{:U('Forgetpwd/index')}">找回密码</a>
+		</div>
+	  </form>
+	</div>
+	<!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script> -->
+	<script type="text/javascript">
+	$(function(){
+
+		$('#submit').click(function(){
+			// var data = $('#userinfo').serialize();
+			// console.log('data',data);
+			var username = $('#username').val();
+			var passwd = $('#passwd').val();
+			var verify = $('#verify').val();
+			$.ajax({
+				url:"{:U('login')}",
+				type:"POST",
+				dataType:"json",
+				data:{username:username,passwd:passwd,verify:verify},
+				success:function(data){
+					// console.log('')
+					console.log('success',data);
+					if(data.rtn>0){
+						s();
+					}else{
+						console.log('f');
+						head.js("/Public/js/noty.js",function(){
+                            showlog(data.msg);
+                            reloadverify();
+						})
+					}
+					function s(){
+						head.js("/Public/js/noty.js",function(){
+                            showlog('登录成功,'+data.data+',又是美好的一天!');
+	            		setTimeout(function(){
+	            			window.location.href = '{:U("Admin/index")}';
+	            		},2000);
+                     });
+					}
+				},
+				error:function(e){
+					console.log('e',e);
+				}
+			})
+		})
+
+		$("#verifyimg").click(function(){   
+	        reloadverify();
+	    });
+	    function reloadverify(){
+	    	var verifyimg = $("#verifyimg").attr("src");
+	    	if(typeof(verifyimg) == "undefined"){
+	            console.log('1')
+	        }else{
+	        	console.log('2')
+	            if( verifyimg.indexOf('?')>0){
+	            	console.log('3')
+	                $("#verifyimg").attr("src", verifyimg+'&random='+Math.random());
+	            }else{
+	            	console.log('4')
+	                $("#verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+	            } 
+	        }
+	    }
+	})
+	</script>
+<include file="Common/footer" />

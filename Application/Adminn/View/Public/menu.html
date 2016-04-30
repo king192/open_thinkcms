@@ -1,0 +1,23 @@
+<script type="text/javascript">
+	$(function(){
+		$(document).click(function(){
+			$.ajax({
+				url:"{:U('Admin/get_menu')}",
+				type:"POST",
+				DataType:'JSON',
+				data:{},
+				success:function(data){
+					console.log('s',data);
+					data = $.parseJSON(data);
+
+					menu = data;
+					console.log('menu',typeof data);
+				},
+				error:function(e){
+					
+					console.log('e',e);
+				}
+			})
+		})
+	})
+</script>

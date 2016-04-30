@@ -1,0 +1,10 @@
+<dl>
+<volist name="comments" id="v">
+	<dt>帖子:<a href="{:U('Square/Index/get_single',array('id'=>$v['post_id']))}" target="_blank">{$v.post_title}</a></dt>
+	<?php if($v['replaytouid'] !== NULL){ ?>
+	<dd>我回复 {$v.username}({$v.replaytocontent}):{$v.content}</dd>
+	<?php }else{ ?>
+	<dd>评论:{$v.content}</dd>
+	<?php } ?>
+</volist>
+</dl>

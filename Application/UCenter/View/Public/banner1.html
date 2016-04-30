@@ -1,0 +1,17 @@
+<div class="col-lg-8">
+<div id="menu" class="panel panel-default">
+   <div class="panel-heading" style="background: #FFF;">
+      <h3 class="panel-title">个人中心</h3>
+   </div>
+   <div class="panel-body">
+   		<div class="menu-list">
+			<a class="ajax_get init" href="{:U('Post/get_my_posts')}" ajaxPost="true">我的帖子</a>
+         <a class="ajax_get" href="{:U('Comments/get_callme_noread_list')}" ajaxPost="true">未读消息</a>
+			<a class="ajax_get" href="{:U('Comments/get_callme_list')}" ajaxPost="true">我的消息</a>
+         <a class="ajax_get" href="{:U('Comments/get_list')}" ajaxPost="true">评论历史</a>
+         <!-- <a class="ajax_get" href="{:U('Uc/get_sign')}" ajaxPost="true">签到积分</a> -->
+			<a class="ajax_get" href="{:U('Uc1/get_trash')}" ajaxPost="true">回收站</a>
+		</div>
+   </div>
+</div>
+</div>

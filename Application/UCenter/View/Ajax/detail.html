@@ -1,0 +1,160 @@
+<!-- 详细资料 -->
+
+<style type="text/css">
+	#ucinfo textarea{
+		width:484px;
+
+	}
+	#ucinfo #self{
+		vertical-align: top;
+	}
+</style>
+<form name="reg_testdate" action="{:U('Uc1/set_profile')}" class="J_ajaxForm">
+<table id="ucinfo" class="">
+   <caption>详细资料</caption>
+   <tbody>
+      <tr>
+         <td>我的积分</td>
+         <td><input type="text" id="" value="{$info.credit}" disabled="true"></td>
+      </tr>
+      <tr>
+         <td>上次登录时间</td>
+         <td><input type="text" id="" value="<?php echo date('Y-m-d H:i:s',$info['lastlgtm']);?>" disabled="true"></td>
+      </tr>
+      <tr>
+         <td>登录次数</td>
+         <td><input type="text" id="" value="{$info.login_times}" disabled="true"></td>
+      </tr>
+      <tr>
+         <td>上次登录ip</td>
+         <td><input type="text" id="" value="{$info.lastip}" disabled="true"></td>
+      </tr>
+		<tr>
+			<td>性别</td>
+			<td>
+				<label class="checkbox-inline">
+			      <input type="radio" name="sex" id="" 
+			         value="1" <?php if($info['sex'] === '1')echo 'checked';?> > 男
+			   </label>
+			   <label class="checkbox-inline">
+			      <input type="radio" name="sex" id="" 
+			         value="2"<?php if($info['sex'] === '2')echo 'checked';?>> 女
+			   </label>
+			   <label class="checkbox-inline">
+			      <input type="radio" name="sex" id="" 
+			         value="0" <?php if($info['sex'] === '0')echo 'checked';?>> 保密
+			   </label>
+			</td>
+		</tr>
+    	<tr>
+	        <td>生日</td>
+	        <?php $birth = explode('-',$info['birthday']);?>
+	        <td><select class="" name="YYYY" onChange="YYYYDD(this.value)">
+					<option value="">请选择 年</option>
+				</select>
+				<select class="" name="MM" onChange="MMDD(this.value)">
+					<option value="">选择 月</option>
+				</select>
+				<select class="" name="DD">
+					<option value="">选择 日</option>
+				</select>
+			</td>
+    	</tr>
+      <tr>
+         <td>我的网站</td>
+         <td><input type="text" id="lastname" 
+            placeholder="http://" value="{$info.url}" name="url"></td>
+      </tr>
+    	<tr>
+    		<td id="self">个人简介</td>
+    		<td>
+			    <textarea class="" rows="5" name="about" placeholder="少于500字">{$info.about}</textarea>
+    		</td>
+    	</tr>
+   </tbody>
+</table>
+<button class="J_ajax_submit_btn btn btn-default ">修改</button>
+</form>
+<!-- <div class="form-group">
+    	<label for="lastname" class="col-lg-5 control-label">生日</label>
+    	<div class="col-sm-10">
+			<select class="form-control" name="YYYY" onChange="YYYYDD(this.value)">
+				<option value="">请选择 年</option>
+			</select>
+			<select class="form-control" name="MM" onChange="MMDD(this.value)">
+				<option value="">选择 月</option>
+			</select>
+			<select class="form-control" name="DD">
+				<option value="">选择 日</option>
+			</select>
+		</div>
+	</div>
+</form> -->
+<script language="JavaScript">   
+function YYYYMMDDstart(){   
+	MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];   
+	
+	//先给年下拉框赋内容   
+	var y  = new Date().getFullYear();  
+	for (var i = (y-130); i < (y+1); i++) //以今年为准，前30年，后30年   
+		   document.reg_testdate.YYYY.options.add(new Option(" "+ i +" 年", i));   
+	
+	//赋月份的下拉框   
+	for (var i = 1; i < 13; i++)   {
+		var tmp_i = i<10?'0'+i:i;
+		   document.reg_testdate.MM.options.add(new Option(" " + tmp_i + " 月", tmp_i));  
+		   } 
+	
+	// document.reg_testdate.YYYY.value = y;   
+	// document.reg_testdate.MM.value = new Date().getMonth() + 1;   
+	// var n = MonHead[new Date().getMonth()];   
+	// if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;   
+	// 	writeDay(n); //赋日期下拉框Author:meizz   
+	// document.reg_testdate.DD.value = new Date().getDate(); 
+
+	document.reg_testdate.YYYY.value = "<?php echo $birth[0];?>" || "";   
+	document.reg_testdate.MM.value = "<?php echo $birth[1];?>" || "";  
+	n = MonHead["<?php echo intval($birth[1])-1;?>"];   
+	if (new Date().getMonth() ==1 && IsPinYear(YYYYvalue)) n++;   
+		writeDay(n); //赋日期下拉框Author:meizz   
+	document.reg_testdate.DD.value = "<?php echo $birth[2];?>" || "";   
+}   
+// if(document.attachEvent)   
+// 	window.attachEvent("onload", YYYYMMDDstart);   
+// else   
+// window.addEventListener('load', YYYYMMDDstart, false);  
+YYYYMMDDstart(); 
+function YYYYDD(str) //年发生变化时日期发生变化(主要是判断闰平年)   
+{   
+	var MMvalue = document.reg_testdate.MM.options[document.reg_testdate.MM.selectedIndex].value;   
+	if (MMvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}   
+	var n = MonHead[MMvalue - 1];   
+	if (MMvalue ==2 && IsPinYear(str)) n++;   
+	writeDay(n)   
+}   
+function MMDD(str)   //月发生变化时日期联动   
+{   
+	var YYYYvalue = document.reg_testdate.YYYY.options[document.reg_testdate.YYYY.selectedIndex].value;   
+	if (YYYYvalue == ""){ var e = document.reg_testdate.DD; optionsClear(e); return;}   
+	var n = MonHead[str - 1];   
+	if (str ==2 && IsPinYear(YYYYvalue)) n++;   
+	writeDay(n)   
+}   
+function writeDay(n)   //据条件写日期的下拉框   
+{   
+	var e = document.reg_testdate.DD; optionsClear(e);   
+	for (var i=1; i<(n+1); i++)  { 
+		var tmp_i = i<10?'0'+i:i;
+		// var tmp_i = i;
+		e.options.add(new Option(" "+ tmp_i + " 日", tmp_i));   
+	}
+}   
+function IsPinYear(year)//判断是否闰平年   
+{
+	return(0 == year%4 && (year%100 !=0 || year%400 == 0));
+}   
+function optionsClear(e)   
+{   
+	e.options.length = 1;   
+}   
+</script>

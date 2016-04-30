@@ -1,0 +1,73 @@
+<include file="Common/header" />
+<include file="Common/source" />
+<include file="Common/topbar" />
+<body>
+	<div class="container">
+		<div class="row" style="margin-top: 60px;">
+			<div class="col-lg-3">
+				<include file="Public:banner1"/>
+			</div>
+			<div class="col-lg-9" style="padding: 43px 43px 0 0">
+				<div class="ajax-container">
+					
+				</div>
+				<div class="page">
+					<!-- <ul class="pagination">
+					  <li><a href="#">&laquo;</a></li>
+					  <li><a href="#">1</a></li>
+					  <li><a href="#">2</a></li>
+					  <li><a href="#">3</a></li>
+					  <li><a href="#">4</a></li>
+					  <li><a href="#">5</a></li>
+					  <li><a href="#">&raquo;</a></li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		$(function(){
+			$('a.ajax_get').click(function(){
+				$.ajax({
+					url:$(this).attr('href'),
+					dataType:"JSON",
+					type:"POST",
+					beforeSend:function(){
+						$('div.ajax-container').html('加载中...');
+					},
+					success:function(data){
+						console.log('s',data);
+						$('div.ajax-container').html(data.data.info);
+						$('div.page').html(data.data.page);
+					},
+					error:function(e){
+						console.log('e',e);
+					}
+				})
+				return false;
+			})
+			//分页
+			$(document).on('click','div.page ul.pagination a',function(){
+				$.ajax({
+					url:$(this).attr('href'),
+					dataType:"JSON",
+					type:"GET",
+					data:{page:true},
+					success:function(data){
+						console.log('s',data);
+						$('div.ajax-container').html(data.data.info);
+						$('div.page').html(data.data.page);
+					},
+					error:function(e){
+						console.log('e',e);
+					}
+				})
+				return false;
+			})
+			$('a.init').click();
+		})
+		</script>
+	</div>
+<script type="text/javascript">
+	
+</script>
+<include file="Common/footer" />

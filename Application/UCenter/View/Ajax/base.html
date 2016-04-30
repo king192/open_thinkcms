@@ -1,0 +1,57 @@
+<!-- 基本资料 -->
+<style type="text/css">
+</style>
+<form action="{:U('Uc1/set_base')}" class="J_ajaxForm">
+<table id="ucinfo" class="">
+   <caption>基本资料</caption>
+   <tbody>
+      <tr>
+         <td>用户名</td>
+         <td><input type="text" id="firstname" 
+            placeholder="用户名" value="{$userinfo.username}" disabled="true" name="username"></td>
+      </tr>
+      <tr>
+         <td>邮箱</td>
+         <td><input type="text" id="lastname" 
+            placeholder="邮箱" value="{$userinfo.email}" disabled="true" name="email"></td>
+      </tr>
+      <tr>
+         <td>电话</td>
+         <td><input type="text" id="lastname" 
+            placeholder="电话" value="{$userinfo.phone}" name="phone"></td>
+      </tr>
+      <tr></tr>
+   </tbody>
+</table>
+<button class="J_ajax_submit_btn btn btn-default ">修改</button>
+</form>
+   <!--
+<form class="form-horizontal" role="form">
+   <div class="form-group">
+      <label for="firstname" class="col-lg-5 control-label">用户名</label>
+      <div class="col-sm-10">
+         <input type="text" class="form-control" id="firstname" 
+            placeholder="请输入名字" value="{$userinfo.username}">
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="lastname" class="col-lg-5 control-label">邮箱</label>
+      <div class="col-sm-10">
+         <input type="text" class="form-control" id="lastname" 
+            placeholder="请输入姓" value="{$userinfo.email}">
+      </div>
+   </div>
+   <div class="form-group">
+      <label for="lastname" class="col-lg-5 control-label">电话</label>
+      <div class="col-sm-10">
+         <input type="text" class="form-control" id="lastname" 
+            placeholder="请输入姓" value="{$userinfo.phone}">
+      </div>
+   </div>
+<div class="username">{$userinfo.username}</div>
+<div class="email">{$userinfo.email}</div>
+<div class="phone">{$userinfo.phone}</div>
+<form name="reg_testdate">
+
+ -->
+   

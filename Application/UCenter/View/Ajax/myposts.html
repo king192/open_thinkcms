@@ -1,0 +1,10 @@
+
+					<volist name="posts" id="v">
+						<h3>
+							<a href="{:U('Square/Index/get_single',array('id'=>$v['id']))}" target="_blank">{$v.title}</a>
+						</h3>
+						<p><b>时间</b><a href="#"><?php echo date('Y-m-d H:i:s',$v['createtime']);?></a> 10:49 <b>分类</b> <a href="{:U('Square/Index/index',array('cate'=>$v['cate']))}">{$v.name}</a></p> 
+						<p>
+							{$v.summary}
+						</p>
+					</volist>

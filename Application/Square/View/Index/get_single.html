@@ -1,0 +1,227 @@
+<include file="Common/header" />
+<include file="Common/source" />
+<include file="Common/topbar" />
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="col-xs-6 span9 col-lg-9">
+					<div class="page-header">
+						<h2>
+							{$posts.title}
+						</h2>
+					</div>
+						<p><b>作者</b><a href="#">{$posts.username}</a> <b>时间</b><a href="#"><?php echo date('Y-m-d H:i:s',$posts['createtime']);?></a> 10:49 <b>分类</b> <a href="{:U('Square/Index/index',array('cate'=>$posts['cate']))}">{$posts.name}</a><b>查看</b>{$posts.post_hits}<b>评论</b>{$posts.comment_sum}</p> 
+						<div class="well">
+							{$posts.summary}
+						</div>
+						<div class="content">
+							{$posts.content}
+						</div>
+						<form role="form" class="J_ajaxForm page-header" action="{:U('UCenter/Comments/send')}">
+						  <div class="form-group">
+
+						    <label for="name">评论</label>
+						    <textarea class="form-control" rows="3" name="content"></textarea>
+						  </div>
+						  <div class="verify" class="form-group"></div>
+						  <div class="form-group">
+						  	<label for="verify">验证码</label>
+						  	<input type="text" name="verify">
+						  </div>
+						  <input type="hidden" name="post_id" value="<?php echo intval($_GET['id']);?>">
+						  <input type="hidden" name="parentid" value="0">
+						  <div class="form-group">
+						  	<button type="submit" class="btn btn-default J_ajax_submit_btn">提交</button>
+						  </div>
+						</form>
+
+						<div id="comment-container">
+							<!-- <div class="page-header">
+								<b><a>admin123</a></b> 2015-4-24 10:55<br/><span class="block-reply"><a href="#">回复</a>|<a href="#">展开评论</a></span>
+							you are so cool!
+
+						<form role="form" class="J_ajaxForm page-header sub" action="{:U('UCenter/Comments/send')}">
+						  <div class="form-group">
+
+						    <label for="name">评论</label>
+						    <textarea class="form-control" rows="3" name="content"></textarea>
+						  </div>
+						  <div class="verify" class="form-group"></div>
+						  <div class="form-group">
+						  	<label for="verify">验证码</label>
+						  	<input type="text" name="verify">
+						  </div>
+						  <input type="hidden" name="post_id" value="<?php echo intval($_GET['id']);?>">
+						  <input type="hidden" name="parentid" value="0">
+						  <div class="form-group">
+						  	<button type="submit" class="btn btn-default J_ajax_submit_btn">提交</button>
+						  </div>
+						</form>
+								<div class="subreply">
+									<b><a>admin123</a></b> 2015-4-24 10:55<br/><span class="block-reply"><a href="#">回复</a>|<a href="#">展开评论</a></span>
+								you are so cool!
+								<div class="subreply">
+									<b><a>admin123</a></b> 2015-4-24 10:55<br/><span class="block-reply"><a href="#">回复</a>|<a href="#">展开评论</a></span>
+								you are so cool!
+								</div>
+								</div>
+							</div> -->
+						</div>
+				</div>
+				<style type="text/css">
+					#comment-container .page-header,#comment-container .subreply{position: relative;}
+					#comment-container .block-reply{
+						position: absolute;
+						right: 0;
+						top:0;
+					}
+					#comment-container .subreply{margin: 20px;}
+				</style>
+				<div class="col-xs-6 span3 col-lg-3">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+//
+	$(function() {
+	  // $('#content').markdown();
+	  $(document).on('click','input[name="verify"]',function(){
+	  	$(this).parents('form').find('div.verify').html('<img id="verifyimg" src="{:U("verify")}" alt="验证码">');
+	  	$(this).val('');
+	  })
+	});
+	/**
+	 * Ajax 请求成功后的回调函数
+	 * @param  {json} data 返回的数据
+	 * @return {void}      
+	 */
+	function after_success_post(data){
+		// console.log('hello');
+		console.log('sss',data);
+		$('form.sub').remove();
+		var html = render(data);
+		if(data.data[0].parentid==='0'){
+		console.log('html',html);
+			$('#comment-container').prepend(html);
+		}else{
+		console.log('html1',html);
+			$('div.sub-append[data-id="'+data.data[0].parentid+'"]').prepend(html);
+		}
+
+	}
+	//获取评论列表
+	$(function(){
+		$.ajax({
+			url:"{:U('Square/Comments/get_comments_list')}",
+			type:"POST",
+			dataType:"JSON",
+			data:{post_id:"<?php echo intval($_GET['id']);?>"},
+			success:function(data){
+				console.log('ssss',data);
+				var html = render(data);
+				$('#comment-container').append(html);
+
+			},
+			error:function(e){
+				console.log('e',e);
+			}
+		})
+		$(document).on('click','.ajax_sub_btn',function(){
+			$('span.block-reply').removeAttr("style");
+			$('form.sub').remove();
+			var parentid = $(this).attr('data-id'),
+				to_uid = $(this).attr('data-uid');
+				//单引号慎用
+			var form = '<form role="form" class="J_ajaxForm page-header sub" action="{:U("UCenter/Comments/send")}">'+
+'<div class="form-group">'+
+'<label for="name">评论</label>'+
+'<textarea class="form-control" rows="3" name="content"></textarea>'+
+'</div>'+
+'<div class="verify" class="form-group"></div>'+
+'<div class="form-group">'+
+'<label for="verify">验证码</label>'+
+'<input type="text" name="verify">'+
+'</div>'+
+'<input type="hidden" name="post_id" value="<?php echo intval($_GET["id"]);?>">'+
+'<input type="hidden" name="parentid" value="'+parentid+'">'+
+'<input type="hidden" name="to_uid" value="'+to_uid+'">'+
+'<div class="form-group">'+
+'<button type="submit" class="btn btn-default J_ajax_submit_btn">提交</button>'+
+'</div>'+
+'</form>';
+			$(this).parent().parent().append(form);
+		})
+		$(document).on('click','.ajax_sub_get',function(){
+			var _this = $(this);
+			$('span.block-reply').removeAttr("style");
+
+			$('form.sub').remove();
+			_this.parent().css({'position':'fixed','bottom':50,'right':150,'top':'initial'});
+			var parentid = _this.attr('data-id');
+			var p = _this.attr('data-page');
+			var limit = 6;
+			$.ajax({
+				//根据评论id获取子评论
+				url:"{:U('Square/Comments/get_by_id')}",
+				type:"POST",
+				dataType:"JSON",
+				data:{parentid:parentid,limit:limit,p:p},
+				beforeSend:function(){
+					_this.hide();
+					_this.parent().find('.loading').show();
+				},
+				success:function(data){
+					console.log('get',data);
+					_this.text('继续加载');
+					_this.show();
+					_this.parent().find('.loading').hide();
+					if(data.data.length<=0){
+						warning('评论加载完成');
+						_this.remove();
+						return false;
+					}
+					_this.attr('data-page',parseInt(p)+1);
+					var html = render(data,2);
+					// _this.parentsUntil('.append').append(html);
+					_this.parent().parent().append(html);
+				},
+				error:function(e){
+					console.log('e',e);
+				}
+
+			})
+		})
+
+	})
+	/**
+	 * 渲染评论
+	 * @param  {json} data 评论信息
+	 * @return {string}      渲染后的字符串
+	 */
+		function render(data){
+			var c = data.data.parentid === '0'? "page-header append":"subreply append";
+			var html = '',
+					len = data.data.length;
+				for (var i = 0;i<len; i++) {
+					var info = data.data[i];
+					// get_sub = ;
+					var subreply = info.ischild==='1'?"<a class='ajax_sub_get' data-page='1' data-scroll='0' data-id='"+info.id+"' href='javascript:;'>展开评论</a><span class='loading' style='display:none;'>加载中</span>|":"";
+					    html += '<div class="'+c+'">'+
+'<b><a>'+info.username+'</a>'+
+'</b>'+info.createtime+'<br/>'+
+'<span class="block-reply">'+
+subreply+'<a class="ajax_sub_btn" data-uid="'+info.uid+'" data-id="'+info.id+'" href="javascript:;">回复</a>'+
+'</span>'+
+info.content+
+'<div class="sub-append" data-id="'+info.id+'"></div>'+
+'</div>';
+				}
+				return html;
+		}
+</script>
+<include file="Common/footer" />
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的书签</title>
+</head>
+<body>
+	<link href="__PUBLIC__/mark/css/jquery-ui.min.css" rel="stylesheet"> 
+<link href="__PUBLIC__/mark/css/icon.css" rel="stylesheet">
+<link href="__PUBLIC__/mark/css/style.css" rel="stylesheet">
+<script src="__PUBLIC__/mark/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/mark/js/jquery-ui.min.js"></script>
+<!--{if $_G['uid']}-->
+<script src="__PUBLIC__/mark/js/logic.js"></script>
+<!--{elseif !$_G['uid']}-->
+<script type="text/javascript" src="__PUBLIC__/mark/js/logicyouke.js"></script>
+<!--{/if}-->
+<!-- <script src="source/plugin/king1992_mark/js/control1.js"></script> -->
+<!-- <script type="text/javascript" src="source/plugin/king1992_mark/js/nav.min.js"></script> -->
+<script>
+$(document).ready(function(){
+	$(".nav_btn #classAdd,#myBookMark").click(function(){
+		$("#nav_xinxi_box").css("display","none");//addClass("hidden");
+		$("#myBookMarkBox").css("display","block");//removeClass("hidden");
+	});
+	$("#nav_xinxi").click(function(){
+		$("#nav_xinxi_box").css("display","block");//.removeClass("hidden");
+		$("#myBookMarkBox").css("display","none");//.addClass("hidden");
+	});
+});
+</script>
+<div id="loader"></div>
+<div class="nav_content">
+<div class="nav_btn">
+	<span class="nav_top" id="classAdd">添加分类</span>
+	<span class="nav_top" id="myBookMark">我的书签</span>
+</div>
+<ul class="nav-block" id="myBookMarkBox">
+{loop $row $m $n}
+	<li class="P_connectedSortable P_connectedSortableCss" id="list_$n['id']">
+		{eval $col = DB::fetch_all("SELECT * FROM ".DB::table('nav_parent')." where ppid=".$n['id']." and uid=".$_G['uid']." ORDER BY sort DESC")}
+		{loop $col $d $t}
+		<div id="sortable_$t['id']" class="classSort">
+				<div class="edit head">	
+					<div class="classTitle">
+						<span id="share_$t['id']" class="delRecIcon" title="删除"></span>
+						<span id="edit_$t['id']" class="modRecIcon" title="编辑"></span>
+						<!-- <span id="rm_$t['id']" class="shareRecIcon" title="分享"></span> -->
+						<span id="attrState_$t['id']" {eval if($t['attrState'])echo 'class="downIcon" title="展开"';else echo 'class="upIcon" title="收起"'}></span>
+						<h3 class="ui-state-header Drop">$t['title']</h3>
+					</div>
+				</div>
+				<div class="marksbox" id="marksbox_$t['id']" style="{eval if($t['attrState'])echo 'display:none';}">
+					<ul class="connectedSortable connectedSortableCss">
+						<li class="empty"></li>
+						{eval $list = DB::fetch_all("SELECT * FROM ".DB::table('nav_item')." where pid=".$t['id']." and uid=".$_G['uid']." ORDER BY sort")}
+						{loop $list $k $v}
+					  <li class="ui-state-list" id="a_$v['id']">
+						<div class="edit editBox">
+							<span id="share_$v['id']" class="delRecIcon" title="删除"></span>
+							<span id="edit_$v['id']" class="modRecIcon" title="编辑"></span>
+							<span id="rm_$v['id']" class="shareRecIcon" title="分享"></span>
+							<span id="ico_$v['id']" class="favIcon defaultIcon"></span>
+							<div class="bookmark">
+								<a href="$v['link']" title="$v['beiZhu']" target="_blank"><em class="link-word">$v['word']</em></a>
+							</div>
+						</div>
+					  </li> 
+						{/loop}
+					</ul>
+					<span class="allBmBbtn iconBgImages add-form"></span>
+				</div>
+		</div>
+		{/loop}
+	</li>
+{/loop}
+</ul>
+</div>
+<script type="text/javascript">
+	$(function() {
+		$("input[type=submit]").click(function() {
+			$(".input-control").html($(this).val());
+		});
+	});
+</script>
+</body>
+</html>

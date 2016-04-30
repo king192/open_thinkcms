@@ -1,0 +1,108 @@
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+html * {box-sizing:border-box;}
+img{max-width: 100%;}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none;     color: inherit;}
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before, q:after { content: ''; }
+.clearfix{clear: both;}
+.clearfix:before{content: "";}
+.clearfix:after{content: "";}
+.fl{float: left;}
+.fr{float: right;}
+.off-w-8{width: 80%;}
+.off-w-2{width: 20%;text-align: center;}
+
+.container{max-width: 640px;margin: auto;}
+.top{background: #F55F74;position: relative;z-index: 1;}
+.top > div{border-right: 1px solid #7D7070;}
+.top > div > div{    margin: 5px 0;}
+.top .user-fig{width: 20%;text-align: center;}
+.top .user-fig img{border-radius: 50%;height: 42px;}
+.top .title{width: 80%;text-align: center;}
+.top .title img{height: 42px;}
+.top .follow img{height: 38px;}
+.top .follow p{color:#FFF;}
+
+.bar .class{width: 100%;padding:9px 0;transition:all 2s;}
+.bar .bar-box{width: 100%;    position: absolute; overflow: hidden; height: 100%; }
+.bar .class span{width: 23%; display: inline-block; text-align: right; font-size: 20px; font-weight: bold;position: relative;z-index: -1;}
+.bar .class-live{color:#f55f74;}
+.bar .class-live:after{
+    content: "";
+    height: 5px;
+    width: 49px;
+    border-radius: 10px;
+    bottom: -9px;
+    background: #f55f74;
+    position: absolute;
+    right: -5px;}
+.bar .more .more-icon{display: inline-block; width: 39px; height: 39px; position: relative; box-shadow: -1px 0px 9px #868585;}
+.bar .more .more-icon:after{
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    position: absolute;
+    border-width: 1px;
+    top: 9px;
+    border-color:#7B7B7B;
+    border-style: solid;
+    left: 15px;
+    border-left-color: transparent;
+    border-top-color: transparent;}
+
+.slide{
+    position: relative;
+    z-index: 1;
+}
+.slide img{min-height: 93px;}
+.anchor-list{margin:5px 10px;}
+.anchor-list ul li{width: 49%;float: left;border: 1px solid #B9B9B9;}
+.anchor-list ul li img{width: 100%;}
+.anchor-list ul li:nth-child(even){margin-left: 2%;}
+.anchor-list ul li .list-info > span{
+    display: inline-block;
+    width: 50%;
+    float: left;
+    text-align: center;
+    white-space: nowrap;
+    padding: 6px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

@@ -1,0 +1,98 @@
+<include file="Common/header" />
+<include file="Common/source" />
+<include file="Common/topbar" />
+
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<!-- <div class="span4">
+				</div> -->
+				<div class="col-lg-4 col-lg-offset-4">
+					<form class="J_ajaxForm" action="{:U('reset_link')}">
+						<fieldset>
+							 <legend>找回密码</legend>
+							  		<div class="form-group" style="display:none;">
+									<div class="radio">
+									   <label>
+									      <input type="radio" name="method" id="method1" 
+									         value="diy" checked> 自定义密码重置
+									   </label>
+									</div>
+									<div class="radio">
+									   <label>
+									      <input type="radio" name="method" id="method2" 
+									         value="random">
+									         发送随机密码到邮箱
+									   </label>
+									</div>
+									</div>
+										<div class="form-group">
+											<div class="">
+												<label for="" class="">请填入用户名或邮箱</label>
+												<input id="userid" type="text" class="form-control" name="userid">
+											</div>
+										</div>
+										<div class="form-group" class="">
+											<div class="">
+												<label for="">验证码</label>
+												<input id="verify" type="text" class="form-control" name="verify">
+											</div>
+										</div>
+										<div>
+											<img id="verifyimg" src="{:U('UserRegister/verify')}" alt=""><br>
+											<!-- <button type="button" class="btn btn-default btn-xs"> -->
+											<button id="submit" href="javascript:;" class="btn btn-default J_ajax_submit_btn" style="margin-top: 10px;">发送邮件</button>
+										</div>
+									</fieldset>
+								</form>
+						</div>
+					</div>
+				</div>
+			</div>
+<!-- <div class="col-xl-6 col-xl-offset-3">
+		<div class="form-group">
+			<div class="">
+	      		<input type="radio" name="method" value="diy">自定义密码重置
+	    	</div>
+	    </div>
+		<div class="form-group">
+    		<div class="">
+	      		<input type="radio" name="method" value="random" checked="checked">发送随机密码到邮箱
+		
+	    	</div>
+	    </div>
+		<div class="form-group">
+    		<label for="verify" class="col-sm-5 control-label">验证码</label>
+    		<div class="">
+	      		<input id="verify" name="verify" type="text" class="form-control" placeholder="验证码">
+	    	</div>
+	    </div>
+		<br>
+		</div>
+	</form>
+	-->
+	<script type="text/javascript">
+	$(function(){
+	    function reloadverify(){
+	    	var verifyimg = $("#verifyimg").attr("src");
+	    	if(typeof(verifyimg) == "undefined"){
+	            console.log('1')
+	        }else{
+	        	console.log('2')
+	            if( verifyimg.indexOf('?')>0){
+	            	console.log('3')
+	                $("#verifyimg").attr("src", verifyimg+'&random='+Math.random());
+	            }else{
+	            	console.log('4')
+	                $("#verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+	            } 
+	        }
+	    }
+	    $("#verifyimg,input[name='verify']").click(function(){
+	    	reloadverify();
+	        $("input[name='verify']").val('');
+	    })
+	})
+	</script>
+<include file="Common/footer" />

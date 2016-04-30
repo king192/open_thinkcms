@@ -1,0 +1,92 @@
+<include file="Common/header" />
+<include file="Common/source" />
+<include file="Common/topbar" />
+<body>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<!-- <div class="span4">
+				</div> -->
+				<div class="col-lg-4 col-lg-offset-4">
+					<form class="J_ajaxForm" action="{:U('register')}">
+						<fieldset>
+							 <legend>注册</legend>
+	<!-- <form class="form-horizontal" id="userinfo" action=""> -->
+								<div class="form-group">
+						    		<label for="username" class="control-label">用户名</label>
+									<div class="">
+										<input id="username" type="text" name="username" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+						    		<label for="passwd" class="control-label">密码</label>
+						    		<div class="">
+										<input id="passwd" type="password" name="passwd" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+						    		<label for="email" class="control-label">电子邮箱</label>
+						    		<div class="">
+										<input id="email" type="text" name="email" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+						    		<label for="email" class="control-label">电话号码</label>
+						    		<div class="">
+										<input id="phone" type="text" name="phone" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+						    		<label for="verify" class="control-label">验证码</label>
+						    		<div class="">
+										<input id="verify" type="text" name="verify" class="form-control">
+									</div>
+								</div>
+								<div class="form-group">
+						    		<label for="verify" class="control-label"></label>
+									<img id="verifyimg" src="{:U('verify')}" alt="">
+									<!-- <a id="reg" href="javascript:;">注册</a> -->
+								</div>
+								<label class="checkbox"><input type="checkbox" name="protocol" value="1" /> 勾选同意</label>
+								<button type="submit" class="btn J_ajax_submit_btn">提交</button>
+								<a href="{:U('UserLogin/index')}">直接登录</a>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		console.log(verifyimg);
+		$("#verifyimg,input[name='verify']").click(function(){   
+			reloadverify();
+			$("input[name='verify']").val('');
+	    });
+	    function reloadverify(){
+			var verifyimg = $("#verifyimg").attr("src");
+	        if(typeof(verifyimg) == "undefined"){
+	            console.log('1')
+	        }else{
+	        	console.log('2')
+	            if( verifyimg.indexOf('?')>0){
+	            	console.log('3')
+	                $("#verifyimg").attr("src", verifyimg+'&random='+Math.random());
+	            }else{
+	            	console.log('4')
+	                $("#verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+	            } 
+	        }
+	    }
+	})
+	function after_success_post(data){
+		setTimeout(function(){
+			window.location.href = '{:U("/User/UserLogin")}';
+		},2000);
+	}
+	</script>
+
+<include file="Common/footer" />

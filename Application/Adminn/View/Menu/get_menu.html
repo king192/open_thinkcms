@@ -1,0 +1,223 @@
+<include file="Common/header" />
+<include file="Common/body" />
+							<!--PAGE CONTENT BEGINS-->
+<ul id="treeDemo" class="ztree"></ul>
+
+							<!--PAGE CONTENT ENDS-->
+						</div><!--/.span-->
+					</div><!--/.row-fluid-->
+				</div><!--/.page-content-->
+
+				<div class="ace-settings-container" id="ace-settings-container">
+					<div class="btn btn-app btn-mini btn-warning ace-settings-btn" id="ace-settings-btn">
+						<i class="icon-cog bigger-150"></i>
+					</div>
+
+					<div class="ace-settings-box" id="ace-settings-box">
+						<div>
+							<div class="pull-left">
+								<select id="skin-colorpicker" class="hide">
+									<option data-class="default" value="#438EB9" />#438EB9
+									<option data-class="skin-1" value="#222A2D" />#222A2D
+									<option data-class="skin-2" value="#C6487E" />#C6487E
+									<option data-class="skin-3" value="#D0D0D0" />#D0D0D0
+								</select>
+							</div>
+							<span>&nbsp; Choose Skin</span>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-header" />
+							<label class="lbl" for="ace-settings-header"> Fixed Header</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-sidebar" />
+							<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-breadcrumbs" />
+							<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+						</div>
+
+						<div>
+							<input type="checkbox" class="ace-checkbox-2" id="ace-settings-rtl" />
+							<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+						</div>
+					</div>
+				</div><!--/#ace-settings-container-->
+			</div><!--/.main-content-->
+		</div><!--/.main-container-->
+
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+			<i class="icon-double-angle-up icon-only bigger-110"></i>
+		</a>
+
+		<!--basic scripts-->
+
+		<!--[if !IE]>-->
+
+		<script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+		<!--<![endif]-->
+
+		<!--[if IE]>
+		<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]>-->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__PUBLIC__/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!--<![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='__PUBLIC__/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='__PUBLIC__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+
+		<!--page specific plugin scripts-->
+
+		<!-- <script src="__PUBLIC__/assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>
+		<script src="__PUBLIC__/assets/js/fuelux/fuelux.tree.min.js"></script> -->
+
+		<!--ace scripts-->
+
+		<script src="__PUBLIC__/assets/js/ace-elements.min.js"></script>
+		<script src="__PUBLIC__/assets/js/ace.min.js"></script>
+
+		<!--inline scripts related to this page-->
+
+
+
+<!-- ztree -->
+		
+	<link rel="stylesheet" href="__PUBLIC__/ztree/css/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="__PUBLIC__/ztree/js/jquery.ztree.core-3.5.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/ztree/js/jquery.ztree.exedit-3.5.js"></script>
+	<include file="Common/source" />
+
+		<script type="text/javascript">
+			var setting = {
+			view: {
+				selectedMulti: false
+			},
+			edit: {
+				enable: true,
+				showRemoveBtn: true,
+				showRenameBtn: true
+			},
+			data: {
+				keep: {
+					parent:false,
+					leaf:true
+				},
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				// beforeDrag: beforeDrag,
+				beforeRemove: beforeRemove,
+				// beforeRename: beforeRename,
+				onRemove: onRemove,
+				beforeEditName:beforeEditName
+			}
+		};
+		var zNodes = <?php echo $menu; ?>;
+		//把PId 换成parentid
+		// var zNodes =[
+		// 	{ id:1, pId:0, name:"父节点1 - 展开", open:true},
+		// 	{ id:11, pId:1, name:"父节点11 - 折叠"},
+		// 	{ id:111, pId:11, name:"叶子节点111"},
+		// 	{ id:112, pId:11, name:"叶子节点112"},
+		// 	{ id:113, pId:11, name:"叶子节点113"},
+		// 	{ id:114, pId:11, name:"叶子节点114"},
+		// 	{ id:12, pId:1, name:"父节点12 - 折叠"},
+		// 	{ id:121, pId:12, name:"叶子节点121"},
+		// 	{ id:122, pId:12, name:"叶子节点122"},
+		// 	{ id:123, pId:12, name:"叶子节点123"},
+		// 	{ id:124, pId:12, name:"叶子节点124"},
+		// 	{ id:13, pId:1, name:"父节点13 - 没有子节点", isParent:true},
+		// 	{ id:2, pId:0, name:"父节点2 - 折叠"},
+		// 	{ id:21, pId:2, name:"父节点21 - 展开", open:true},
+		// 	{ id:211, pId:21, name:"叶子节点211"},
+		// 	{ id:212, pId:21, name:"叶子节点212"},
+		// 	{ id:213, pId:21, name:"叶子节点213"},
+		// 	{ id:214, pId:21, name:"叶子节点214"},
+		// 	{ id:22, pId:2, name:"父节点22 - 折叠"},
+		// 	{ id:221, pId:22, name:"叶子节点221"},
+		// 	{ id:222, pId:22, name:"叶子节点222"},
+		// 	{ id:223, pId:22, name:"叶子节点223"},
+		// 	{ id:224, pId:22, name:"叶子节点224"},
+		// 	{ id:23, pId:2, name:"父节点23 - 折叠"},
+		// 	{ id:231, pId:23, name:"叶子节点231"},
+		// 	{ id:232, pId:23, name:"叶子节点232"},
+		// 	{ id:233, pId:23, name:"叶子节点233"},
+		// 	{ id:234, pId:23, name:"叶子节点234"},
+		// 	{ id:3, pId:0, name:"父节点3 - 没有子节点", isParent:true, open:true}
+		// ];
+		// 
+		function beforeRemove(treeId, treeNode) {
+			// console.log('beforeRemove',treeNode);
+			// className = (className === "dark" ? "":"dark");
+			// showLog("[ "+getTime()+" beforeRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+			if(treeNode.isParent){
+				warning('不能删除父节点');
+				return false;
+			}
+			return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+		}
+		function onRemove(e, treeId, treeNode) {
+			console.log('beforeRemove',treeNode);
+			// showLog("[ "+getTime()+" onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+			$.ajax({
+				url:"{:U('del_post')}",
+				type:"POST",
+				dataType:"JSON",
+				data:{id:treeNode.id},
+				success:function(data){
+					if(data.rtn>0){
+						show('删除成功');
+					}else{
+						warning(data.msg);
+					}
+				}
+			})
+		}
+		// function beforeRename(treeId, treeNode, newName) {
+		// 	console.log('treeNode',treeNode.id);
+		// 	return false;
+		// }
+		function beforeEditName(treeId, treeNode){
+			console.log('hello',treeNode);
+			$.ajax({
+				url:"{:U('edit_get_post')}",
+				dataType:"JSON",
+				type:"POST",
+				data:{id:treeNode.id},
+				success:function(data){
+					console.log('s',data);
+					$('.modal-body').html(data.msg);
+					$('#myModal').modal();
+				}
+			})
+			return false;
+		}
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+		});
+		</script>
+		<include file="Common/modal" />
+	</body>
+</html>

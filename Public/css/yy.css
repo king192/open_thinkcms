@@ -1,0 +1,55 @@
+
+		html body{margin: 0; height: 100%; position: absolute; width: 100%;}
+		.actives{color:#DE6767; border-bottom: 2px solid;}
+		.clear{clear:both;}
+		.clear:after{content: "";}
+		img{max-width: 100%;}
+		video{z-index: -999999;}
+		ul{padding: 0;margin: 0;}
+		ul li{list-style-type: none;}
+		div.bar ul{overflow: hidden; text-align: center; background-color: #F5F5F5; border-bottom: 1px solid #EAEAEA;margin: }
+		div.bar li{float: left;width: 33%;border-right: 1px solid #EAEAEA; padding: 12px 0; }
+		div.msg{background: url(../images/chat_bg.jpg);top:0; background-repeat: no-repeat;z-index:999999999999; height: 235px; background-size: 100%;overflow-y: auto;}
+		div.msg ul{padding-bottom: 50px;}
+		div.msg li{}
+		div.msg span{float: left;display: block;}
+		span.avatar{width: 10%;}
+		span.avatar img{border-radius: 50%;width: 35px;height: 35px;}
+		span.ne{width: 90%;line-height: 35px;color: #FF5A5A;}
+		div.msg .msg_info{padding: 10px;background: rgba(255, 255, 255, 0.69);z-index: 99999; border: 1px solid #eee; display: inline-block; margin-left: 10px; border-radius: 6px;position: relative;}
+		.trangle{position: absolute; display: block; border-width: 10px; border-style: solid; border-left-color: transparent; border-right-color: transparent; border-top-color: transparent; top: -21px; left: 4px;border-bottom-color: rgba(255, 255, 255, 0.69);}
+    	.trangle:after{content: ""; position: absolute; display: block; border-width: 10px; border-style: solid; border-left-color: transparent; border-right-color: transparent; border-top-color: transparent; border-bottom-color: transparent; top: -9px; left: -10px;}
+    	.input{
+    position: fixed; bottom: 0; width: 94%; padding: 10px 3%; background: #FFF;z-index: 99999;
+}
+    	.input span{width: 75%; border: 1px solid #eee; padding: 3px 0; display: block; float: left; border-radius: 4px;}
+    	.input span input{width: 96%;}
+    	a.submit{text-decoration: none; color: #000; border: 1px solid #eee; width: 10%; display: block; float: right; border-radius: 3px; text-align: center; background-color: #59B159;padding: 3px 0;} 
+    	a.gift{background:url(../images/gift.jpg) no-repeat;text-decoration: none; color: #000; border: 1px solid #eee; width: 10%; display: block; float: right; border-radius: 3px; text-align: center; background-color: #59B159;padding: 3px 0;height: 14px;background-size: 100%;} 
+    	.giftbox .gifts{width: 11px;padding: 0 4px;margin: 2px 0;}
+    	.show{
+    position: fixed;
+    bottom: 55px;
+    z-index: 99999;
+    right: 19px;
+    width: 40px;}
+		
+    	.boom{
+			-webkit-animation: boom 2s ease-in-out;
+			animation: boom 2s ease-in-out;
+		    animation-fill-mode: both;
+		}
+		@-webkit-keyframes boom {
+		  0% { -webkit-transform: scale(0.9); opacity: 1;bottom:55px;}
+		  100% { -webkit-transform: scale(1.0);opacity:0; bottom:100px;}
+		}
+		@keyframes boom {
+		  0% {
+		    transform: scale(0.9);opacity: 1;bottom:55px;
+		    -webkit-transform: scale(0.9);opacity: 1;bottom:100px;
+		  } 
+		  100% {
+		    transform: scale(1.0);opacity:0;bottom:55px;
+		    -webkit-transform: scale(1.0);opacity:0;bottom:100px;
+		  }
+		}

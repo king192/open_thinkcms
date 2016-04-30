@@ -1,0 +1,53 @@
+<include file="Common/header" />
+<include file="Common/source" />
+<include file="Common/topbar" />
+<body>
+	<div class="container">
+
+		<include file="Public:banner"/>
+		<div class="col-lg-10">
+			<div id="userinfo" class="info">
+			</div>
+		</div>
+		<script type="text/javascript">
+		$(function(){
+			function ajax_get(url){
+				var url = url || "{:U('get_base')}";
+				console.log('url',url);
+				$.ajax({
+					url:url,
+					dataType:"JSON",
+					type:"POST",
+					data:{},
+					beforeSend:function(){
+						$('.info').html('加载中...');
+					},
+					success:function(data){
+						console.log('s',data);
+						$('.info').html(data.data);
+						// head.js("/Public/js/dateselect.js",function(){		
+						// YYYYMMDDstart();		
+						// 	// if(document.attachEvent)   
+						// 	// 	window.attachEvent("onload", YYYYMMDDstart);   
+						// 	// else   
+						// 	// window.addEventListener('load', YYYYMMDDstart, false); 
+						// });
+						console.log('ssssss');
+					},
+					error:function(e){
+						console.log('e',e);
+					}
+				})
+			}
+			ajax_get();
+			$('.ajax_get').click(function(){
+				var url = $(this).attr('href');
+				ajax_get(url);
+				return false;
+			})
+		})
+
+		</script>
+	</div>
+
+<include file="Common/footer" />

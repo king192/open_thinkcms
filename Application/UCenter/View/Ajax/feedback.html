@@ -1,0 +1,45 @@
+<!-- 详细资料 -->
+
+<style type="text/css">
+	#ucinfo textarea{
+		width:484px;
+
+	}
+	#ucinfo #self{
+		vertical-align: top;
+	}
+</style>
+<form name="reg_testdate" action="{:U('Uc1/feedback')}" class="J_ajaxForm">
+<table id="ucinfo" class="">
+   <caption>意见或bug反馈</caption>
+   <tbody>
+      <tr>
+         <td>标题</td>
+         <td><input type="text" id="title" 
+            placeholder="100字以内" value="" name="title"></td>
+      </tr>
+    	<tr>
+    		<td id="self">反馈内容</td>
+    		<td>
+			    <textarea class="" rows="5" name="content"></textarea>
+    		</td>
+    	</tr>
+      <tr>
+         <td>验证码</td>
+         <td><input type="text" id="verify" 
+            placeholder="验证码" value="" name="verify"></td>
+      </tr>
+      <tr><td></td><td><div id="verify"></div></td></tr>
+   </tbody>
+</table>
+<button class="J_ajax_submit_btn btn btn-default ">提交</button>
+</form>
+<script type="text/javascript">
+  
+  $(function() {
+    $('input[name="verify"]').click(function(){
+      $('div#verify').html('<img id="verifyimg" src="{:U("Square/Index/verify")}" alt="验证码">');
+      $(this).val('');
+    })
+  });
+</script>

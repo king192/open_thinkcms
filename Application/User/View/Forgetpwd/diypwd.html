@@ -1,0 +1,70 @@
+<include file="Common/header" />
+<include file="Common/source" />
+<include file="Common/topbar" />
+ok
+
+	<div class="col-xl-6 col-xl-offset-3">
+		<form class="form-horizontal" data-example-id="input-group-sizing" id="form">
+			<div class="form-group">
+	    		<label for="newpwd" class="col-sm-5 control-label">密码</label>
+				<div class="col-sm-3">
+		      		<input type="password" class="form-control" placeholder="密码" id="newpwd" name="newpwd">
+		    	</div>
+		    </div>
+
+			<div class="form-group">
+	    		<label for="repwd" class="col-sm-5 control-label">确认密码</label>
+	    		<div class="col-sm-3">
+		      		<input id="repwd" name="repwd" type="password" class="form-control" placeholder="确认密码">
+		    	</div>
+		    </div>
+			<div class="form-group">
+	    		<label for="" class="col-sm-5 control-label"></label>
+	    		<div class="col-sm-3">
+					<a href="javascript:;" id="submit" class="btn btn-success">重置密码</a>
+		    	</div>
+		    </div>
+		</form>
+	</div>
+<script type="text/javascript">
+	$(function(){
+		$('#submit').click(function(){
+			var enc_uid = "{:cookie('enc_uid')}" || "";
+			var newpwd = $('input#newpwd').val();
+			var repwd = $('input#repwd').val();
+			var token = "{:I('token')}";
+			if(newpwd != repwd){
+				head.js("/Public/js/noty.js",function(){
+                    showlog('密码与确认密码不相等');
+				})
+				return false;
+			}
+			$.ajax({
+				url:"{:U('diy_resetpwd')}",
+				type:"POST",
+				dataType:"JSON",
+				data:{enc_uid:enc_uid,newpwd:newpwd,token:token},
+				beforeSend:function(){
+				},
+				success:function(data){
+					console.log('s',data);
+					if(data.rtn>0){
+						head.js("/Public/js/noty.js",function(){
+                            showlog(data.msg);
+                            window.location.href = "{:U('User/UserLogin/index')}";
+						})
+					}else{
+						head.js("/Public/js/noty.js",function(){
+                            showlog(data.msg);
+                            // reloadverify();
+						})
+					}
+				},
+				error:function(e){
+					console.log('e',e);
+				}
+			})
+		})
+	})
+</script>
+<include file="Common/footer" />

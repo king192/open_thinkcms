@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default" style="border-color: #FFF;" role="navigation">
+   <div class="navbar-header">
+      <a class="navbar-brand" href="/">爱游思</a>
+   </div>
+   <div>
+      <ul class="nav navbar-nav">
+         <li class=""><a href="http://wp.iyouths.org" target="_blank">博客</a></li>
+
+      </ul>
+   </div>
+   <div>
+         <?php if(!UID){ ?>
+      <p class="navbar-text navbar-right" style="margin-right: 0;"> 
+         <a href="#" class="navbar-link">登陆</a>
+         <a href="#" class="navbar-link">注册</a>
+      </p>
+        <?php }else{
+$userinfo = get_cookie_info(array('username','avatar'));
+         ?>
+         <!-- <span class="fr avatar"><img id="top-avatar" src="{:get_avatar()}" alt=""></span> -->
+         <div id="avatar">
+            <span class="img"><img src="<?php echo $userinfo['avatar'];?>" alt=""></span>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <?php echo $userinfo['username'];?> <b class="caret"></b>
+               </a>
+               <ul class="dropdown-menu">
+                  <li><a href="{:U('UCenter/Uc/index')}">用户中心</a></li>
+                  <li><a href="{:U('UCenter/Uc/profile')}">账户设置</a></li>
+                  <li><a href="{:U('UCenter/Post/index')}">发表帖子</a></li>
+                  <li><a href="#"></a></li>
+                  <li class="divider"></li>
+                  <li>
+                     <form action="{:U('sign')}" class="J_ajaxForm">
+                        <button class="J_ajax_submit_btn btn btn-xs btn-block" style="background: #FFF;">签到得积分</button>
+                     </form>
+                  </li>
+                  <li class="divider"></li>
+                  <li><a href="{:U('User/UserLogin/logout')}">退出</a></li>
+               </ul>
+            </li>
+         </div>
+        <?php } ?>
+   </div>
+</nav>

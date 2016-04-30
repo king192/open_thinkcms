@@ -1,0 +1,11 @@
+<dl>
+<volist name="comments" id="v">
+	<dt>帖子:<a href="{:U('Square/Index/get_single',array('id'=>$v['post_id']))}" target="_blank">{$v.post_title}</a>(<if condition="$v.is_read eq 1">已读<else/>未读</if>)</dt>
+	
+	<?php if($v['uid'] !== $v['to_uid']){ ?>
+	<dd>{$v.username}在我的评论:({$v.mycontent})中回复我:{$v.content}</dd>
+	<?php }else{ ?>
+	<dd>我在评论:{$v.mycontent}中回复自己:{$v.content}</dd>
+	<?php } ?>
+</volist>
+</dl>

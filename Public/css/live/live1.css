@@ -1,0 +1,196 @@
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+html * {box-sizing:border-box;}
+img{max-width: 100%;}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none;     color: inherit;}
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before, q:after { content: ''; }
+.clearfix{clear: both;}
+.clearfix:before{content: "";}
+.clearfix:after{content: "";}
+.fl{float: left;}
+.fr{float: right;}
+.off-w-8{width: 80%;}
+.off-w-2{width: 20%;text-align: center;}
+
+.bar .aheight{
+    height: auto !important;
+}
+body{background: #f1f1f1;}
+.bar,.anchor-list li{background: #FFF;position: relative;}
+.container{max-width: 640px;margin: auto;position: relative;}
+.top{background: #F55F74;position: relative;z-index: 1;}
+.top > div{border-right: 1px solid #7D7070;}
+.top > div > div{    margin: 5px 0;}
+.top .user-fig{width: 20%;text-align: center;}
+.top .user-fig img{border-radius: 50%;height: 42px;}
+.top .title{width: 80%;text-align: center;}
+.top .title img{height: 42px;}
+.top .follow img{height: 23px; margin: 8px 0 0px 0;}
+.top .follow p{color:#FFF;}
+
+.bar .class{width: 100%;padding:9px 0 0 0;z-index: 2;position: absolute;height: 100%;background: #FFF;overflow: hidden;}
+.bar .class span{
+    width: 20%;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 16px;
+    float: left;
+}
+.bar .class-live{color:#f55f74;}
+.bar .class-live:before{
+    content: "";
+    height: 5px;
+    width: 80%;
+    border-radius: 10px;
+    bottom: 10px;
+    background: #f55f74;
+    position: absolute;
+    right: 7px;}
+.bar .more .more-icon{display: inline-block; width: 39px; height: 39px; position: relative; box-shadow: -3px -1px 8px #868585;background: #FFF;z-index: 2;}
+
+.bar .more .icon-down:after{
+    border-color:#7B7B7B;
+    top: 11px;
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+.bar .more .more-icon:after{
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    left: 15px;
+}
+.bar .more .icon-up:after{
+    border-color:#F55F74;
+    top: 18px;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.slide{
+    position: relative;
+    z-index: 1;
+}
+.slide img{min-height: 93px;}
+.anchor-list{margin:5px 10px;}
+.anchor-list ul li{overflow: hidden;margin-bottom: 5px;}
+.anchor-list ul li img{width: 100%;min-height: 106px;}
+.anchor-list ul li > span{float: left;width: 43%;display: block;max-width: 200px;}
+.anchor-list ul li > span:nth-child(2){width: 57%;}
+.anchor-list .list-info .info-block{
+    background: url(/Public/Mob/images/icons.png) no-repeat;
+    background-size: cover;
+}
+.anchor-list .list-info h3{
+    line-height: 39px;
+    height: 29px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.anchor-list .list-info p{line-height: 26px;height: 21px;overflow: hidden;}
+.anchor-list .list-info p > span{
+    width: 50%;
+    height: 30px;
+    display: block;
+    float: left;
+}
+.anchor-list .list-info em{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.anchor-list .list-info .share-line{
+    text-align: center;
+    display: block;
+}
+.anchor-list .list-info .share{
+    display: inline-block;
+    padding: 5px 29px;
+    margin-top: 6px;
+    font-size: 16px;
+    border-radius: 6px;
+    background-color: #F55F74;
+}
+.anchor-list .list-info .icon{
+    display: inline-block;
+    margin-right: 4px;
+    width: 45px;
+    height: 9px;
+}
+.icon-real-view{background: url(/Public/Mob/images/icon_06.png) no-repeat;background-size: 100%;}
+.icon-his-view{background: url(/Public/Mob/images/icon_08.png) no-repeat;background-size: 100%;}
+.icon-gold{background: url(/Public/Mob/images/icon_13.png) no-repeat;background-size: 100%;}
+.icon-day-view{background: url(/Public/Mob/images/icon_15.png) no-repeat;background-size: 100%;}
+
+
+.sort{position: absolute;width: 100%;height: 80%;background: #f1f1f1;z-index: 2;display: none;}
+.sort .sort-top{text-align: center; font-size: 18px; font-weight: bold; margin: 12px 0; position: relative;}
+.sort .sort-top .close{position: absolute;right: 19px;}
+.sort .sort-content >span{display: inline-block;width: 32%;text-align: center;margin-bottom: 15px;}
+.sort .sort-content >span .icon{display: inline-block; width: 40px; height: 40px; background: url(/Public/Mob/images/effects8.png) no-repeat;
+margin-bottom: 2px;}
+.sort .sort-content >span .icon-nvshen{background-position: 0 0;}
+/*
+.slideDown{
+    -webkit-animation: slideDown 1.5s ease;
+    -o-animation: slideDown 1.5s ease;
+    animation: slideDown 1.5s ease;
+}
+.slideUp{
+    -webkit-animation: slideUp 1.5s ease;
+    -o-animation: slideUp 1.5s ease;
+    animation: slideUp 1.5s ease;
+}
+@-webkit-keyframes slideDown {
+    from{top:-459px}
+    to{top:0px}
+}
+@keyframes slideDown {
+    from{top:-459px}
+    to{top:0px}
+}*/

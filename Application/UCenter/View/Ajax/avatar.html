@@ -1,0 +1,27 @@
+<!-- 头像设置 -->
+<img id="avatar-img" style="max-width:500px;" src="<?php $t = get_user_info('avatar'); echo 'http://'.$_SERVER['HTTP_HOST'].'/'.$t['avatar'];?>" alt="">
+
+<a class="loadavatar" href="javascript:;">修改头像</a>
+
+<script type="text/javascript">
+	$('.loadavatar').bind('click',function(){
+		head.js('__PUBLIC__/css/My/fig.css');
+		$.ajax({
+			url:"{:U('load_avatar')}",
+			type:"POST",
+			dataType:"JSON",
+			data:{},
+			success:function(data){
+				console.log('s',data);
+				$('.info').append(data.data);
+				$('.loadavatar').unbind('click').bind('click',function(){
+					$('#avatar-container').fadeIn();
+				})
+				$('.loadavatar').click();
+			},
+			error:function(e){
+				console.log('e',e);
+			}
+		})
+	})
+</script>

@@ -1,0 +1,162 @@
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<form class="form-search">
+				 <div class="col-lg-4">
+		            <div class="input-group">
+		               <input type="text" class="form-control">
+		               <span class="input-group-btn">
+		                  <button class="btn btn-default" type="button">
+		                     搜索
+		                  </button>
+		               </span>
+		            </div><!-- /input-group -->
+		         </div><!-- /.col-lg-6 -->
+			</form>
+			<div class="row">
+				<div class="col-xs-9 span9 col-lg-9">
+					<volist name="posts" id="v">
+						<div class="posts-block">
+							<h3>
+								<a href="{:U('Square/Index/get_single',array('id'=>$v['id']))}" target="_blank">{$v.title}</a>
+							</h3>
+							<p>
+								{$v.summary}
+							</p>
+							<p><b>作者</b><a href="#">{$v.username}</a> <b>时间</b><a href="#"><?php echo date('Y-m-d H:i:s',$v['createtime']);?></a><b>分类</b> <a href="{:U('Square/Index/index',array('cate'=>$v['cate']))}">{$v.name}</a><b>查看</b>{$v.post_hits}<b>评论</b>{$v.comment_sum}</p> 
+						</div>
+					</volist>
+					<!-- <ul class="pagination">
+					  <li><a href="#">&laquo;</a></li>
+					  <li class="active"><a href="#">1</a></li>
+					  <li class="disabled"><a href="#">2</a></li>
+					  <li><a href="#">3</a></li>
+					  <li><a href="#">4</a></li>
+					  <li><a href="#">5</a></li>
+					  <li><a href="#">&raquo;</a></li>
+					</ul> -->
+					{$page}
+				</div>
+				<div class="col-xs-3 span3 col-lg-3">
+					<div class="tabbable" id="tabs-753735">
+						<ul class="nav nav-tabs">
+							<li class="active">
+								<a data-toggle="tab" href="#panel-37139">最新</a>
+							</li>
+							<li>
+								<a data-toggle="tab" href="#panel-60208">最热</a>
+							</li>
+							<li>
+								<a data-toggle="tab" href="#panel-60207">广告</a>
+							</li>
+							<li>
+								<a data-toggle="tab" href="#panel-60206">推荐</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="panel-37139">
+								<ol>
+								<volist name="new_posts" id="v">
+									<li>
+										<a href="{:U('Square/Index/get_single',array('id'=>$v['id']))}" target="_blank">{$v.title}</a>
+									</li>
+								</volist>
+								</ol>
+							</div>
+							<div class="tab-pane" id="panel-60208">
+								
+								<ul>
+								<volist name="hot_posts" id="v">
+									<li>
+									<a href="{:U('Square/Index/get_single',array('id'=>$v['id']))}" target="_blank">
+										{$v.title}
+									</a>
+									</li>
+								</volist>
+								</ul>
+							</div>
+							<div class="tab-pane" id="panel-60207">
+											
+								<ul>
+									<li>
+										新闻资讯
+									</li>
+									<li>
+										体育竞技
+									</li>
+									<li>
+										娱乐八卦
+									</li>
+									<li>
+										前沿科技
+									</li>
+									<li>
+										环球财经
+									</li>
+									<li>
+										天气预报
+									</li>
+									<li>
+										房产家居
+									</li>
+									<li>
+										网络游戏
+									</li>
+								</ul>
+							</div>
+							<div class="tab-pane" id="panel-60206">
+											
+								<ul>
+									<li>
+										新闻资讯
+									</li>
+									<li>
+										体育竞技
+									</li>
+									<li>
+										娱乐八卦
+									</li>
+									<li>
+										前沿科技
+									</li>
+									<li>
+										环球财经
+									</li>
+									<li>
+										天气预报
+									</li>
+									<li>
+										房产家居
+									</li>
+									<li>
+										网络游戏
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="right-bar"><h4>分类</h4>
+						<ul class="inline">
+						<volist name="cate" id="v">
+							<li>
+								<a href="{:U('Square/Index/index',array('cate'=>$v['id']))}">{$v.name}</a>
+							</li>
+						</volist>
+						</ul>
+					</div>
+					<div class="right-bar"><h4>上周积分排行</h4>
+						<ul class="inline">
+							<volist name="order_credit" id="v">
+								<li>
+									{$v.username}({$v.credit})
+								</li>
+							</volist>
+						</ul>
+					</div>
+					<style type="text/css">
+					</style>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

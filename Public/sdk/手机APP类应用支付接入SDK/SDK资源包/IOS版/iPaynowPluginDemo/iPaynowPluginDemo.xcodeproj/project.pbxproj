@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB7B174619A729F0009ECB86 /* libIpaynowPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7B174519A729F0009ECB86 /* libIpaynowPlugin.a */; };
+		BB8E5F7519A720B1009CFCBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5F7419A720B1009CFCBD /* Foundation.framework */; };
+		BB8E5F7719A720B1009CFCBD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5F7619A720B1009CFCBD /* CoreGraphics.framework */; };
+		BB8E5F7919A720B1009CFCBD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5F7819A720B1009CFCBD /* UIKit.framework */; };
+		BB8E5F7F19A720B1009CFCBD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB8E5F7D19A720B1009CFCBD /* InfoPlist.strings */; };
+		BB8E5F8119A720B1009CFCBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8E5F8019A720B1009CFCBD /* main.m */; };
+		BB8E5F8519A720B1009CFCBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8E5F8419A720B1009CFCBD /* AppDelegate.m */; };
+		BB8E5F8819A720B1009CFCBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB8E5F8619A720B1009CFCBD /* Main.storyboard */; };
+		BB8E5F9019A720B1009CFCBD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8E5F8F19A720B1009CFCBD /* Images.xcassets */; };
+		BB8E5FD219A7212D009CFCBD /* libUPPayPlugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5FC519A7212C009CFCBD /* libUPPayPlugin.a */; };
+		BB8E5FD419A721D9009CFCBD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5FD319A721D9009CFCBD /* Security.framework */; };
+		BB8E5FD619A721E7009CFCBD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5FD519A721E7009CFCBD /* SystemConfiguration.framework */; };
+		BB8E5FD819A721F3009CFCBD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8E5FD719A721F3009CFCBD /* QuartzCore.framework */; };
+		C73957D81A1F19E50009822F /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C73957D61A1F19E50009822F /* AlipaySDK.bundle */; };
+		C73957D91A1F19E50009822F /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73957D71A1F19E50009822F /* AlipaySDK.framework */; };
+		C7CFED761A1DEBEC00615A0E /* ipaynow.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C7CFED751A1DEBEC00615A0E /* ipaynow.bundle */; };
+		C7E7576E1A2D94F000A71C18 /* MainViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C7E7576D1A2D94F000A71C18 /* MainViewController.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB7B174519A729F0009ECB86 /* libIpaynowPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libIpaynowPlugin.a; sourceTree = "<group>"; };
+		BB8E5F7119A720B1009CFCBD /* iPaynowPluginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPaynowPluginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB8E5F7419A720B1009CFCBD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BB8E5F7619A720B1009CFCBD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BB8E5F7819A720B1009CFCBD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BB8E5F7C19A720B1009CFCBD /* iPaynowPluginDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iPaynowPluginDemo-Info.plist"; sourceTree = "<group>"; };
+		BB8E5F7E19A720B1009CFCBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BB8E5F8019A720B1009CFCBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB8E5F8219A720B1009CFCBD /* iPaynowPluginDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iPaynowPluginDemo-Prefix.pch"; sourceTree = "<group>"; };
+		BB8E5F8319A720B1009CFCBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB8E5F8419A720B1009CFCBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB8E5F8719A720B1009CFCBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB8E5F8F19A720B1009CFCBD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BB8E5F9619A720B1009CFCBD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BB8E5FC519A7212C009CFCBD /* libUPPayPlugin.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUPPayPlugin.a; sourceTree = "<group>"; };
+		BB8E5FC619A7212C009CFCBD /* UPPayPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPayPlugin.h; sourceTree = "<group>"; };
+		BB8E5FC719A7212C009CFCBD /* UPPayPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPayPluginDelegate.h; sourceTree = "<group>"; };
+		BB8E5FD319A721D9009CFCBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BB8E5FD519A721E7009CFCBD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BB8E5FD719A721F3009CFCBD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BB8E60BD19A7286D009CFCBD /* IpaynowPluginApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IpaynowPluginApi.h; sourceTree = "<group>"; };
+		BB8E60BE19A7286D009CFCBD /* IpaynowPluginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IpaynowPluginDelegate.h; sourceTree = "<group>"; };
+		C73957D61A1F19E50009822F /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		C73957D71A1F19E50009822F /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		C7CFED751A1DEBEC00615A0E /* ipaynow.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ipaynow.bundle; sourceTree = "<group>"; };
+		C7E7576B1A2D924900A71C18 /* IPNPreSignMessageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPNPreSignMessageUtil.h; sourceTree = "<group>"; };
+		C7E7576C1A2D94F000A71C18 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		C7E7576D1A2D94F000A71C18 /* MainViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainViewController.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB8E5F6E19A720B1009CFCBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB8E5FD819A721F3009CFCBD /* QuartzCore.framework in Frameworks */,
+				BB8E5FD619A721E7009CFCBD /* SystemConfiguration.framework in Frameworks */,
+				BB7B174619A729F0009ECB86 /* libIpaynowPlugin.a in Frameworks */,
+				BB8E5FD419A721D9009CFCBD /* Security.framework in Frameworks */,
+				BB8E5F7719A720B1009CFCBD /* CoreGraphics.framework in Frameworks */,
+				BB8E5F7919A720B1009CFCBD /* UIKit.framework in Frameworks */,
+				BB8E5F7519A720B1009CFCBD /* Foundation.framework in Frameworks */,
+				BB8E5FD219A7212D009CFCBD /* libUPPayPlugin.a in Frameworks */,
+				C73957D91A1F19E50009822F /* AlipaySDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB8E5F6819A720B1009CFCBD = {
+			isa = PBXGroup;
+			children = (
+				BB8E60BB19A7286D009CFCBD /* IpaynowPlugin */,
+				BB8E5FAC19A7212C009CFCBD /* AliPayPlugin */,
+				BB8E5FC419A7212C009CFCBD /* UPPayPlugin */,
+				BB8E5F7A19A720B1009CFCBD /* iPaynowPluginDemo */,
+				BB8E5F7319A720B1009CFCBD /* Frameworks */,
+				BB8E5F7219A720B1009CFCBD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB8E5F7219A720B1009CFCBD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E5F7119A720B1009CFCBD /* iPaynowPluginDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB8E5F7319A720B1009CFCBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E5FD719A721F3009CFCBD /* QuartzCore.framework */,
+				BB8E5FD519A721E7009CFCBD /* SystemConfiguration.framework */,
+				BB8E5FD319A721D9009CFCBD /* Security.framework */,
+				BB8E5F7419A720B1009CFCBD /* Foundation.framework */,
+				BB8E5F7619A720B1009CFCBD /* CoreGraphics.framework */,
+				BB8E5F7819A720B1009CFCBD /* UIKit.framework */,
+				BB8E5F9619A720B1009CFCBD /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB8E5F7A19A720B1009CFCBD /* iPaynowPluginDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E5F8319A720B1009CFCBD /* AppDelegate.h */,
+				BB8E5F8419A720B1009CFCBD /* AppDelegate.m */,
+				C7E7576C1A2D94F000A71C18 /* MainViewController.h */,
+				C7E7576D1A2D94F000A71C18 /* MainViewController.mm */,
+				BB8E5F8619A720B1009CFCBD /* Main.storyboard */,
+				BB8E5F8F19A720B1009CFCBD /* Images.xcassets */,
+				BB8E5F7B19A720B1009CFCBD /* Supporting Files */,
+			);
+			path = iPaynowPluginDemo;
+			sourceTree = "<group>";
+		};
+		BB8E5F7B19A720B1009CFCBD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E5F7C19A720B1009CFCBD /* iPaynowPluginDemo-Info.plist */,
+				BB8E5F7D19A720B1009CFCBD /* InfoPlist.strings */,
+				BB8E5F8019A720B1009CFCBD /* main.m */,
+				BB8E5F8219A720B1009CFCBD /* iPaynowPluginDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB8E5FAC19A7212C009CFCBD /* AliPayPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				C73957D71A1F19E50009822F /* AlipaySDK.framework */,
+				C73957D61A1F19E50009822F /* AlipaySDK.bundle */,
+			);
+			name = AliPayPlugin;
+			path = iPaynowPluginDemo/AliPayPlugin;
+			sourceTree = "<group>";
+		};
+		BB8E5FC419A7212C009CFCBD /* UPPayPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				BB8E5FC519A7212C009CFCBD /* libUPPayPlugin.a */,
+				BB8E5FC619A7212C009CFCBD /* UPPayPlugin.h */,
+				BB8E5FC719A7212C009CFCBD /* UPPayPluginDelegate.h */,
+			);
+			name = UPPayPlugin;
+			path = iPaynowPluginDemo/UPPayPlugin;
+			sourceTree = "<group>";
+		};
+		BB8E60BB19A7286D009CFCBD /* IpaynowPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				C7CFED751A1DEBEC00615A0E /* ipaynow.bundle */,
+				BB7B174519A729F0009ECB86 /* libIpaynowPlugin.a */,
+				BB8E60BD19A7286D009CFCBD /* IpaynowPluginApi.h */,
+				BB8E60BE19A7286D009CFCBD /* IpaynowPluginDelegate.h */,
+				C7E7576B1A2D924900A71C18 /* IPNPreSignMessageUtil.h */,
+			);
+			name = IpaynowPlugin;
+			path = iPaynowPluginDemo/IpaynowPlugin;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB8E5F7019A720B1009CFCBD /* iPaynowPluginDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB8E5FA619A720B1009CFCBD /* Build configuration list for PBXNativeTarget "iPaynowPluginDemo" */;
+			buildPhases = (
+				BB8E5F6D19A720B1009CFCBD /* Sources */,
+				BB8E5F6E19A720B1009CFCBD /* Frameworks */,
+				BB8E5F6F19A720B1009CFCBD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPaynowPluginDemo;
+			productName = iPaynowPluginDemo;
+			productReference = BB8E5F7119A720B1009CFCBD /* iPaynowPluginDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB8E5F6919A720B1009CFCBD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Ipaynow;
+			};
+			buildConfigurationList = BB8E5F6C19A720B1009CFCBD /* Build configuration list for PBXProject "iPaynowPluginDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB8E5F6819A720B1009CFCBD;
+			productRefGroup = BB8E5F7219A720B1009CFCBD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB8E5F7019A720B1009CFCBD /* iPaynowPluginDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB8E5F6F19A720B1009CFCBD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C73957D81A1F19E50009822F /* AlipaySDK.bundle in Resources */,
+				BB8E5F9019A720B1009CFCBD /* Images.xcassets in Resources */,
+				C7CFED761A1DEBEC00615A0E /* ipaynow.bundle in Resources */,
+				BB8E5F7F19A720B1009CFCBD /* InfoPlist.strings in Resources */,
+				BB8E5F8819A720B1009CFCBD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB8E5F6D19A720B1009CFCBD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E7576E1A2D94F000A71C18 /* MainViewController.mm in Sources */,
+				BB8E5F8519A720B1009CFCBD /* AppDelegate.m in Sources */,
+				BB8E5F8119A720B1009CFCBD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BB8E5F7D19A720B1009CFCBD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB8E5F7E19A720B1009CFCBD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BB8E5F8619A720B1009CFCBD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB8E5F8719A720B1009CFCBD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB8E5FA419A720B1009CFCBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BB8E5FA519A720B1009CFCBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB8E5FA719A720B1009CFCBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/AliPayPlugin",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iPaynowPluginDemo/iPaynowPluginDemo-Prefix.pch";
+				INFOPLIST_FILE = "iPaynowPluginDemo/iPaynowPluginDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/AliPayPlugin",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/IpaynowPlugin",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/UPPayPlugin",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BB8E5FA819A720B1009CFCBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/AliPayPlugin",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iPaynowPluginDemo/iPaynowPluginDemo-Prefix.pch";
+				INFOPLIST_FILE = "iPaynowPluginDemo/iPaynowPluginDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/AliPayPlugin",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/IpaynowPlugin",
+					"$(PROJECT_DIR)/iPaynowPluginDemo/UPPayPlugin",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB8E5F6C19A720B1009CFCBD /* Build configuration list for PBXProject "iPaynowPluginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB8E5FA419A720B1009CFCBD /* Debug */,
+				BB8E5FA519A720B1009CFCBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB8E5FA619A720B1009CFCBD /* Build configuration list for PBXNativeTarget "iPaynowPluginDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB8E5FA719A720B1009CFCBD /* Debug */,
+				BB8E5FA819A720B1009CFCBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB8E5F6919A720B1009CFCBD /* Project object */;
+}

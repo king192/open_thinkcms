@@ -1,0 +1,200 @@
+<!-- 以下是头像上传代码 author：<1434970057@qq.com> -->
+        <!-- // <script type="text/javascript" src="__PUBLIC__/js/head.min.js"></script> -->
+        <script type="text/javascript">
+                var i = 1,a;
+            $(function () {
+
+  // 单个图片上传
+  var fileuploads = $('.avatar-file');
+    fileuploads.change(function(){
+        $('.jcrop-preview').attr('style','height:auto;width:auto;');
+        $('.upload-again').css('display','inline-block');
+        var file = $(this).get(0);
+      head.js('__PUBLIC__/js/localresize/mobileFix.mini.js','__PUBLIC__/js/localresize/exif.js','__PUBLIC__/js/localresize/my.lrz.js','__PUBLIC__/js/jcrop/jquery.my.Jcrop.min.js','__PUBLIC__/css/jcrop/jquery.Jcrop.min.css',function(){
+
+                lrz(file.files[0], {width: 360}, function (results) {
+
+              // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
+              // console.log('2');
+              var base_img = results.base64,
+                  base64Len = results.base64Len,
+                  jcrop_api,
+                  boundx,
+                  boundy;
+              // console.log('img',$img);
+              $('.avatar-img').empty().removeClass('avatar_width');
+              $('.avatar-img').append('<img src="'+base_img+'" id="avatar-jcrop" class="again"/>');//.removeClass('showimg');
+            $('.jcrop-preview').attr('src',base_img);
+              var $img = $('#avatar-jcrop');
+              // console.log('3');
+
+            $preview = $('#preview-pane'),
+            $pcnt = $('#preview-pane .preview-container'),
+            $pimg = $('#preview-pane .preview-container img'),
+
+            xsize = $pcnt.width(),
+            ysize = $pcnt.height();
+
+              $img.Jcrop({
+                    aspectRatio:1/1,
+                    onChange: updatePreview,
+                    onSelect: updateCoords,
+                    setSelect: [ 0, 0, 100, 100 ]
+                  },function(){
+                    jcrop_api = this;
+                      var bounds = this.getBounds();//图像宽高
+                      // console.log('bounds',bounds);
+                      boundx = bounds[0];
+                      boundy = bounds[1];
+                      // console.log('jjjj');
+                    jcrop_api.setOptions({ allowSelect: false });
+                    $preview.appendTo($('.avatar-pre'));
+                  });
+
+
+                  function updateCoords(c)
+                  {
+                    $('#x').val(c.x);
+                    $('#y').val(c.y);
+                    $('#w').val(c.w);
+                    $('#h').val(c.h);
+                  };
+
+                    function updatePreview(c)
+                    {
+                      if (parseInt(c.w) > 0)
+                      {
+                        var rx = xsize / c.w;//preview/select
+                        var ry = ysize / c.h;
+                        // console.log('xs',rx*boundx);
+                        // console.log('ys',ry*boundy);
+
+                        $pimg.css({
+                          width: Math.round(rx * boundx) + 'px',
+                          height: Math.round(ry * boundy) + 'px',
+                          marginLeft: '-' + Math.round(rx * c.x) + 'px',
+                          marginTop: '-' + Math.round(ry * c.y) + 'px'
+                        });
+                      }
+                    };
+                  var img = $('#avatar-jcrop'),
+                    img_container = $('.avatar-img'),
+                    img_w = (img_container.width() - img.width())/2,
+                    img_h = (img_container.height() - img.height())/2;
+                    // console.log('j',img_container.height());
+                    // console.log('k',img.height());
+                img_container.css('padding-top',img_h+'px');
+                img_container.css('padding-left',img_w+'px');
+            });
+      });
+
+});
+
+});
+
+        </script>
+            <div id="avatar-container" style="">
+        <div class="avatar-panel">
+            <span class="avatar-title">上传头像</span>
+            <span id="a-cancel">&times;</span>
+        </div>
+        <div class="avatar-content">
+            <div class="avatar-main">
+                <div class="avatar-img">
+                    <a href="javascript:;" class="avatar-button">
+                        <b class="avatar-icon">+</b>
+                        选择图片
+                        <input type="file" name="avatar" class="avatar-file" id="avatar-file">
+                    </a>
+                    <!--[if lt IE 10]>
+                        <div class="avatar-ltie10">
+                        请选择ie9以上的ie浏览器
+                        </div>
+                    <![endif]-->
+                </div>
+                <div class="avatar-preview">
+                    <div class="avatar-pre">
+                        <div id="preview-pane">
+                            <div class="preview-container">
+                                <if condition="$info.fig neq ''">
+                                    <img style="width:100px;height:100px;" src="{$info.fig}" class="jcrop-preview" alt="Preview" />
+                                </if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="avatar-clear" style="clear:both;"></div>
+        <div class="avatar-again">
+            <a style="display:none;" href="javascript:;" class="avatar-button upload-again">重新上传<input type="file" name="avatar" class="avatar-file" id="avatar-file"></a>
+        </div>
+        <div class="avatar-bottom">
+            <span class="avatar-ok">上传</span>
+            <span class="avatar-cancel">取消</span>
+        </div>
+    </div>
+    <input id="w" type="hidden" name="w">
+    <input id="h" type="hidden" name="h">
+    <input id="x" type="hidden" name="x">
+    <input id="y" type="hidden" name="y">
+    <script type="text/javascript">
+    $(function(){
+        // console.log('1');
+        var container = $('#avatar-container');
+        // console.log('c');
+        $('#avatar-upload').click(function(){
+            head.js('__PUBLIC__/css/avatar.up.css',function(){
+            var left = (document.body.scrollWidth-container.width())/2;
+            // console.log(left);
+            container.attr('style','left:'+left+'px');
+                $('#avatar-container').fadeIn();
+            })
+        })
+        $('#a-cancel,.avatar-cancel').click(function(){
+            $('#avatar-container').fadeOut();
+        })
+    })
+    </script>
+    <script type="text/javascript">
+    $(function(){
+        $('.avatar-ok').click(function(){
+            var _this = $(this);
+            var base_img = $('img#avatar-jcrop').attr('src'),
+                w = $('input[name=w]').val(),
+                h = $('input[name=h]').val(),
+                x = $('input[name=x]').val(),
+                y = $('input[name=y]').val();
+                // console.log('w',base_img);
+                if(typeof base_img=='undefined') return false;
+            $.ajax({
+              url: "{:U('upload_avatar')}",
+              type: 'POST',
+              dataType: 'json',
+              timeout : 10000, //
+              data: {base_img:base_img,w:w,h:h,x:x,y:y},
+              beforeSend:function(){
+                _this.text('上传中...');
+              },
+              success: function(obj){
+                  var Things = obj.data;
+                  if (obj.rtn>0) {
+                    $('#avatar-container').fadeOut();
+                    $('#avatar-img').attr('src',obj.data);
+                    $('#top-avatar').attr('src',obj.data);
+                  }else{
+                      // $('.get_message .intro').text(obj.msg)
+                      // openMsg("get_message");
+                      console.log(obj.msg);
+                  }
+                  _this.text('上传');
+              },
+              error:function(e){
+                  console.log('eee',e);
+                  // $('.get_message .intro').text('hello');
+                  // openMsg("get_message");
+              }
+            })
+        })
+    })
+    </script>

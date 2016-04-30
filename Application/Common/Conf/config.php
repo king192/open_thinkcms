@@ -14,7 +14,7 @@ if(defined('local')){
 	    'DB_PREFIX'             =>  'app_',    // 数据库表前缀
 	);
 }else{
-	//sae 环境
+	//sae 环境,部署环境，以前是sae，查看入口文件包含的deploy.php，以下常量定义一下就ok
 	$array = array(
 		//'配置项'=>'配置值'
 	    'DB_TYPE'               =>  'mysql',     // 数据库类型
